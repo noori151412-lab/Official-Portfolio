@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noor Fatima - Personal Portfolio</title>
+  <link rel="icon" type="image/x-icon" href="../assets/NFlogo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+  </style>
+</head>
+
+<body>
+
+ <header class="fixed-top custom-navbar shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark container py-3">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../assets/NFlogo.jpg" alt="Logo" class="me-2" style="height: 30px;">
+      <span class="fw-bold fs-4 text-uppercase">NF Developer</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto text-uppercase fw-semibold">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+  <main id="home" class="hero-section d-flex align-items-center" style="min-height: 100vh; padding-top: 80px;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0 text-start">
+          <h5 class="text-uppercase text-muted fw-normal mb-3" style="letter-spacing: 3px; font-size: 0.9rem;">This is
+            Me</h5>
+          <h1 class="fw-bold mb-4 text-dark text-uppercase" style="line-height: 1.1; font-size: 2.5rem;">Noor Fatima
+          </h1>
+          <p class="text-muted mb-5 fs-6" style="max-width: 500px; line-height: 1.8;">
+            I specialize in building high-quality websites and custom templates with a focus on modern aesthetics and
+            clean, efficient code.
+          </p>
+          <a href="#portfolio" class="btn btn-discover text-uppercase fw-bold px-5 py-3 shadow-lg">Discover Now</a>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <div class="image-container-wrapper position-relative d-inline-block">
+            <img src="../assets/img01.png" alt="Portfolio Image" class="img-fluid main-profile-img position-relative">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- About Section -->
+
+  <section id="about" class="about-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-12 mb-5 mb-lg-0 text-center position-relative">
+          <div class="image-frame d-inline-block position-relative shadow-lg">
+            <div
+              class="frame-border position-absolute top-0 start-0 w-100 h-100 border border-primary border-4 rounded">
+            </div>
+            <div class="frame-pattern position-absolute w-100 h-100 top-0 start-0 rounded"></div>
+            <img src="../assets/img02.png" alt="About Me Portrait"
+              class="img-fluid position-relative portfolio-image rounded">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 text-start px-lg-5">
+          <h5 class="text-uppercase text-muted fw-normal mb-3" style="letter-spacing: 2px;">About Me</h5>
+          <h2 class="h3 fw-bold mb-4 text-dark text-uppercase">Personal Details</h2>
+          <p class="text-muted mb-5 fs-6" style="line-height: 1.8;">
+            I am an enthusiastic <strong>Web Developer</strong> who loves bridging the gap between attractive design and
+            functional code. From crafting responsive front-end interfaces with <strong>React & Bootstrap</strong> to
+            handling back-end integration, I design websites that look great and work perfectly.
+          </p>
+          <a href="./assets/Noor_Fatima_Resume__1_.pdf" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary-gradient text-uppercase fw-semibold px-5 py-3 shadow">
+            View Full Details
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section Start -->
+  <section id="skills" class="skills-section py-5 bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- Left Side: Heading and Intro -->
+        <div class="col-lg-5 mb-4 mb-lg-0">
+          <h6 class="text-uppercase text-primary fw-bold mb-2" style="letter-spacing: 2px;">My Expertise</h6>
+          <h2 class="display-6 fw-bold text-dark mb-3">Skills & Proficiencies</h2>
+          <p class="text-muted" style="line-height: 1.7;">
+            Driven by a passion for building functional, user-centric web applications. Here is a brief overview of my
+            technical proficiency and hands-on experience in modern web technologies.
+          </p>
+        </div>
+
+        <!-- Right Side: Progress Bars -->
+        <div class="col-lg-7">
+
+          <!-- Skill 1: React.js & MERN Stack -->
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold text-dark">React.js & MERN Stack</span>
+              <span class="text-muted">85%</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar btn-primary-gradient" role="progressbar" style="width: 85%;" aria-valuenow="85"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Skill 2: HTML5 & CSS3 / Bootstrap -->
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold text-dark">HTML5, CSS3 & Bootstrap</span>
+              <span class="text-muted">95%</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar btn-primary-gradient" role="progressbar" style="width: 95%;" aria-valuenow="95"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Skill 3: JavaScript -->
+          <div class="mb-4">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold text-dark">JavaScript</span>
+              <span class="text-muted">80%</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar btn-primary-gradient" role="progressbar" style="width: 80%;" aria-valuenow="80"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <!-- Skill 4: PHP & MySQL -->
+          <div class="mb-0">
+            <div class="d-flex justify-content-between mb-1">
+              <span class="fw-semibold text-dark">PHP & MySQL</span>
+              <span class="text-muted">75%</span>
+            </div>
+            <div class="progress" style="height: 8px;">
+              <div class="progress-bar btn-primary-gradient" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section id="services" class="services-section py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3 mt-5 text-uppercase">My Offered Services</h2>
+      <p class="text-muted mb-5 mx-auto" style="max-width: 700px;">Providing professional digital services to help you
+        build a strong online presence.</p>
+      <div class="row g-4 mt-4 justify-content-center">
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card p-4 bg-white shadow-sm h-100">
+            <div class="icon-box mb-3"><i class="bi bi-pie-chart"></i></div>
+            <h5 class="fw-bold service-title">Web Design</h5>
+            <p class="text-muted small">Creating stunning, user-friendly designs that capture your brand's essence
+              effectively.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card p-4 bg-white shadow-sm h-100">
+            <div class="icon-box mb-3"><i class="bi bi-laptop"></i></div>
+            <h5 class="fw-bold service-title">Web Development</h5>
+            <p class="text-muted small">Building robust and high-performance websites using the latest technologies.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-card p-4 bg-white shadow-sm h-100">
+            <div class="icon-box mb-3"><i class="bi bi-envelope-paper"></i></div>
+            <h5 class="fw-bold service-title">Email Template</h5>
+            <p class="text-muted small">Designing professional, responsive email templates for better engagement.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio-section py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-3 mt-5 text-uppercase">Our Latest Featured Projects</h2>
+      <p class="text-muted mb-5 mx-auto" style="max-width: 700px;">Explore my work.</p>
+
+      <ul class="nav justify-content-center mb-5 filter-nav text-uppercase fw-semibold">
+        <li class="nav-item"><a class="nav-link active" href="#">All Projects</a></li>
+      </ul>
+
+      <div class="row g-4 mt-4" id="portfolio-projects-container">
+        <div class="col-12">
+          <p class="text-muted">Fetching latest projects...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer py-2" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-5 mb-3">
+          <h5 class="footer-heading mb-4">About Me</h5>
+          <p class="footer-desc">
+            Passionate Web Developer from Lahore, focused on building modern digital experiences.
+          </p>
+          <p class="footer-desc mt-5">
+            Copyright ©2026 All rights reserved | Made with <i class="bi bi-heart text-primary"></i> by <span
+              class="text-primary">Noor Fatima</span>
+          </p>
+        </div>
+
+        <div class="col-lg-4 col-md-5 mb-3">
+          <h5 class="footer-heading mb-4">Newsletter</h5>
+          <p class="footer-desc mb-4">Stay updated with our latest trends</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Enter Email Address">
+            <button type="submit"><i class="bi bi-arrow-right"></i></button>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-heading mb-4">Follow Me</h5>
+          <p class="footer-desc mb-4">Let us be social</p>
+          <div class="footer-socials d-flex gap-3">
+            <a href="https://www.facebook.com/share/1Mo2mGHbyE/"><i class="bi bi-facebook"></i></a>
+            <a href="https://github.com/noori151412-lab"><i class="bi bi-github"></i></a>
+            <a
+              href="https://www.linkedin.com/in/noor-fatima-70088a401?utm_source=share_via&utm_content=profile&utm_medium=member_android"><i
+                class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAs-Paste-Your-Actual-Key-Here",
+      authDomain: "noor-portfolio-e7ade.firebaseapp.com",
+      projectId: "noor-portfolio-e7ade",
+      storageBucket: "noor-portfolio-e7ade.appspot.com",
+      messagingSenderId: "264005681283",
+      appId: "1:264005681283:web:bc812f3b0889d85799dbb6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const container = document.getElementById('portfolio-projects-container');
+
+    async function loadPortfolio() {
+      try {
+        const q = query(collection(db, "projects"), orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
+
+        container.innerHTML = "";
+
+        if (querySnapshot.empty) {
+          container.innerHTML = "<p class='text-muted'>Database is empty.</p>";
+          return;
+        }
+
+        querySnapshot.forEach((docData) => {
+          const project = docData.data();
+
+          const displayImage = project.imageUrl ? project.imageUrl : 'https://via.placeholder.com/300';
+
+          container.innerHTML += `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="portfolio-box position-relative overflow-hidden shadow-sm border rounded">
+                            <!-- Card ki background image ab dynamic hai -->
+                            <img src="${displayImage}" alt="${project.title}" class="img-fluid w-100" style="height: 250px; object-fit: cover;">
+                            
+                            <div class="portfolio-overlay d-flex flex-column align-items-center justify-content-center text-white p-3">
+                                <h6 class="fw-bold mb-2">${project.title}</h6>
+                                <div class="overlay-icons">
+                                    <!-- Yahan project ka live link kaam karega -->
+                                    <a href="${project.link}" target="_blank" class="text-white">
+                                        <i class="bi bi-eye fs-3"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+        });
+      } catch (error) {
+        console.error("Firebase Error:", error);
+        container.innerHTML = `<p class='text-danger'>Error: ${error.message}</p>`;
+      }
+    }
+
+    loadPortfolio();
+  </script>
+
+</body>
+
+</html>

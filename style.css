@@ -14,22 +14,60 @@ body {
     color: #222;
 }
 
-/* --- 2. Navbar Styling --- */
+/* --- 2. Navbar Styling (Updated for Gradient Background) --- */
+.custom-navbar {
+    background: linear-gradient(to right, #8490ff 0%, #62bdfc 100%) !important;
+    border-radius: 8px; 
+    box-shadow: 0 4px 15px rgba(132, 144, 255, 0.25); 
+    padding-left: 20px !important; 
+    padding-right: 20px !important;
+}
+.custom-navbar .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.custom-navbar .nav-link:hover {
+    color: #ffffff !important;
+}
+
+.custom-navbar .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+/* Mobile responsive toggler button (hamburger icon)*/
+.custom-navbar .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
 .nav-link {
-    color: #222 !important;
+    color: rgba(255, 255, 255, 0.85) !important; 
     margin-left: 20px;
     transition: 0.3s;
+    position: relative;
 }
-
 .nav-link:hover, .nav-link.active {
-    color: #8490ff !important;
+    color: #ffffff !important; 
 }
-
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
 /* --- 3. Buttons & Gradients --- */
 .btn-discover, .btn-primary-gradient, .bottom-brand-bar, .footer-newsletter button {
     background: linear-gradient(to right, #8490ff 0%, #62bdfc 100%) !important;
 }
-
 .btn-discover, .btn-primary-gradient {
     border: none !important;
     color: white !important;
@@ -96,7 +134,7 @@ body {
     color: #8490ff;
 }
 
-/* --- 6. Portfolio (Wapas Add Kiya Gaya Hai) --- */
+/* --- 6. Portfolio  --- */
 .portfolio-box {
     position: relative;
     border-radius: 10px;
@@ -108,7 +146,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(132, 144, 255, 0.85); /* Purple Overlay */
+    background: rgba(132, 144, 255, 0.85); 
     opacity: 0;
     transition: all 0.5s ease;
 }
@@ -129,7 +167,7 @@ body {
 /* --- 7. Empty Blue Bar Styling --- */
 .bottom-brand-bar {
     background: linear-gradient(to right, #8490ff 0%, #62bdfc 100%);
-    min-height: 100px; /* Thodi height taake empty bar nazar aaye */
+    min-height: 100px; 
     display: flex;
     align-items: center;
 }
@@ -186,3 +224,4 @@ body {
 .footer-socials a:hover {
     color: #8490ff;
 }
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Manage Projects</title>
+    <link rel="icon" type="image/x-icon" href="../assets/NFlogo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .sidebar {
+            background: #8490ff;
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .btn-primary {
+            background: #8490ff;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar: Iski classes wahi rakhi hain jo aapke original design mein thin -->
+            <div class="col-md-2 sidebar">
+                <h4>Noor Admin</h4>
+                <hr>
+                <button id="logout-btn" class="btn btn-light btn-sm w-100">Logout</button>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10 p-5">
+                <h2 class="mb-4">Manage Portfolio Projects</h2>
+
+                <!-- Form Card -->
+                <div class="card p-4 mb-5">
+                    <h5 id="form-title">Add New Project</h5>
+                    <form id="add-project-form" class="row g-3">
+                        <div class="col-md-4">
+                            <input type="text" id="p-title" class="form-control" placeholder="Project Title" required>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="p-link" class="form-control" placeholder="Netlify Link" required>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="p-image" class="form-control" placeholder="ImgBB Direct Link"
+                                required>
+                        </div>
+                        <div class="col-md-12 text-end mt-3">
+                            <button type="submit" id="submit-btn" class="btn btn-primary px-5">Add Project</button>
+                        </div>
+                    </form>
+                </div>
+
+                <h4>Live Projects</h4>
+                <div class="row g-4" id="projects-container">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { logoutUser } from '../js/auth.js';
+        import { getProjects, createProject, updateProject, deleteProjectDoc } from '../js/CRUD.js';
+
+        const projectsContainer = document.getElementById('projects-container');
+        const addForm = document.getElementById('add-project-form');
+        const submitBtn = document.getElementById('submit-btn');
+
+        let editMode = false;
+        let editId = null;
+
+        // 1. Load Projects
+        async function load() {
+            projectsContainer.innerHTML = "Loading...";
+            try {
+                const querySnapshot = await getProjects();
+                projectsContainer.innerHTML = "";
+
+                querySnapshot.forEach((documentData) => {
+                    const project = documentData.data();
+                    const id = documentData.id;
+
+                    // Strings break hone se bachane k liye safe values
+                    const title = project.title || "";
+                    const link = project.link || "";
+                    const imageUrl = project.imageUrl || "";
+
+                    projectsContainer.innerHTML += `
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 p-2">
+                            <img src="${imageUrl || 'https://via.placeholder.com/150'}" class="card-img-top" style="height:150px; object-fit:cover;">
+                            <div class="card-body">
+                                <h6>${title}</h6>
+                                <div class="d-flex gap-2">
+                                    <!-- Data attributes use kiye hain string crash se bachne k liye -->
+                                    <button class="btn btn-sm btn-primary flex-fill edit-btn" 
+                                            data-id="${id}" 
+                                            data-title="${title}" 
+                                            data-link="${link}" 
+                                            data-image="${imageUrl}">Edit</button>
+                                    <button class="btn btn-sm btn-danger flex-fill del-btn" data-id="${id}">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                });
+
+                // Event Listeners ko dynamic HTML par attach karna
+                attachEventListeners();
+
+            } catch (error) {
+                console.error("Error loading projects:", error);
+                projectsContainer.innerHTML = "Failed to load projects.";
+            }
+        }
+
+        // Buttons par click handling ke liye helper function
+        function attachEventListeners() {
+            // Edit Buttons
+            document.querySelectorAll('.edit-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const btn = e.target;
+                    document.getElementById('p-title').value = btn.getAttribute('data-title');
+                    document.getElementById('p-link').value = btn.getAttribute('data-link');
+                    document.getElementById('p-image').value = btn.getAttribute('data-image');
+
+                    editId = btn.getAttribute('data-id');
+                    editMode = true;
+                    submitBtn.innerText = "Update Project";
+
+                    // Form par focus le jane k liye (Optional)
+                    document.getElementById('p-title').focus();
+                });
+            });
+
+            // Delete Buttons
+            document.querySelectorAll('.del-btn').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const id = e.target.getAttribute('data-id');
+                    if (confirm("Are you sure you want to delete this project?")) {
+                        await deleteProjectDoc(id);
+                        load();
+                    }
+                });
+            });
+        }
+
+        // 2. Add/Update Handle
+        addForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const title = document.getElementById('p-title').value;
+            const link = document.getElementById('p-link').value;
+            const imageUrl = document.getElementById('p-image').value;
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = editMode ? "Updating..." : "Adding...";
+
+            try {
+                if (editMode) {
+                    await updateProject(editId, { title, link, imageUrl });
+                    editMode = false;
+                    editId = null; // Reset ID
+                    submitBtn.innerText = "Add Project";
+                } else {
+                    await createProject(title, link, imageUrl);
+                }
+                addForm.reset();
+                load();
+            } catch (error) {
+                console.error("Operation failed:", error);
+                alert("Something went wrong!");
+            } finally {
+                submitBtn.disabled = false;
+                if (!editMode) submitBtn.innerText = "Add Project";
+            }
+        });
+
+        document.getElementById('logout-btn').addEventListener('click', logoutUser);
+
+        // Initial load
+        load();
+    </script>
+</body>
+
+</html>
