@@ -37,7 +37,6 @@
 
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar: Iski classes wahi rakhi hain jo aapke original design mein thin -->
             <div class="col-md-2 sidebar">
                 <h4>Noor Admin</h4>
                 <hr>
@@ -96,7 +95,7 @@
                     const project = documentData.data();
                     const id = documentData.id;
 
-                    // Strings break hone se bachane k liye safe values
+                    
                     const title = project.title || "";
                     const link = project.link || "";
                     const imageUrl = project.imageUrl || "";
@@ -121,7 +120,6 @@
                     </div>`;
                 });
 
-                // Event Listeners ko dynamic HTML par attach karna
                 attachEventListeners();
 
             } catch (error) {
@@ -130,7 +128,6 @@
             }
         }
 
-        // Buttons par click handling ke liye helper function
         function attachEventListeners() {
             // Edit Buttons
             document.querySelectorAll('.edit-btn').forEach(button => {
@@ -144,7 +141,7 @@
                     editMode = true;
                     submitBtn.innerText = "Update Project";
 
-                    // Form par focus le jane k liye (Optional)
+                   
                     document.getElementById('p-title').focus();
                 });
             });
